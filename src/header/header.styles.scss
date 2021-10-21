@@ -1,0 +1,47 @@
+.header {
+  display: grid;
+  grid-template-columns: 55px 100px 100px auto;
+  grid-gap: 5 px;
+}
+
+.img-note {
+  margin-top: 21px;
+}
+
+.img-note:hover {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.night-mode {
+  background-color: #e1e1e1ce;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 25px 705px;
+  width: 100px;
+  height: 35px;
+}
+
+.night-mode:hover {
+  background-color: #ededed;
+  transform: scale(1.05);
+  cursor: pointer;
+}
