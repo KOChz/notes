@@ -8,7 +8,7 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `
 
-const Header = ({ handleNightMode }) => {
+const Header = () => {
   const [theme, setTheme] = React.useState('light')
 
   const themeToggler = () => {
@@ -28,7 +28,7 @@ const Header = ({ handleNightMode }) => {
           <h1 className="notes">Notes</h1>
         </div>
         <button className="dark-mode" onClick={() => themeToggler()}>
-          Change Theme
+          Switch Theme
         </button>
       </StyledApp>
     </ThemeProvider>

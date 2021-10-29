@@ -45,6 +45,16 @@ const App = () => {
     setNotes(newNotes)
   }
 
+  const editNote = (text) => {
+    const editedNote = {
+      text: text,
+      id: nanoid(),
+    }
+
+    const editedNotes = [...notes, editedNote]
+    setNotes(editedNotes)
+  }
+
   return (
     <div className="container">
       <Header />
@@ -55,6 +65,7 @@ const App = () => {
         )}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
+        handleEditNote={editNote}
       />
     </div>
   )

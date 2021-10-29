@@ -33,7 +33,11 @@
   border: none;
   border-radius: 15px;
   padding: 3px 8px 3px 8px;
-  height: 30px;
+  height: 35px;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.15s ease-out;
 }
 
 .dark-mode:hover {

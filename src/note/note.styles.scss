@@ -9,6 +9,11 @@
   flex-direction: column;
   justify-content: space-between;
   white-space: pre-wrap;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
 }
 
 .note:hover {
@@ -42,12 +47,22 @@ textarea:focus {
   border-radius: 15px;
   padding: 3px 8px 3px 8px;
   box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.3);
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.15s ease-out;
 }
 
 .save:hover {
   background-color: #ededed;
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.delete-icon {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.15s ease-out;
 }
 
 .delete-icon:hover {
@@ -59,4 +74,21 @@ textarea:focus {
   width: 100%;
   word-wrap: break-word;
   display: 'block';
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-icon {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.15s ease-out;
+}
+
+.edit-icon:hover {
+  cursor: pointer;
+  transform: scale(1.15);
 }
