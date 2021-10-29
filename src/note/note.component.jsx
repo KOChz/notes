@@ -21,6 +21,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
             className="edit-icon"
             src="https://img.icons8.com/color/48/000000/edit--v2.png"
             // saasd
+            // comment3
             alt="Editing icon"
             width="18"
             height="18"

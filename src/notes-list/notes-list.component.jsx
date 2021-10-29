@@ -3,6 +3,8 @@ import './notes-list.styles.css'
 import Note from '../note/note.component'
 import AddNote from '../note/add-note.component'
 
+// comment2
+
 const NoteList = ({
   notes,
   handleAddNote,

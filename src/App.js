@@ -45,7 +45,7 @@ const App = () => {
     setNotes(newNotes)
   }
 
-  const editNote = (text) => {
+  const editNote = (id, text) => {
     const editedNote = {
       text: text,
       id: nanoid(),
@@ -70,5 +70,7 @@ const App = () => {
     </div>
   )
 }
+
+// commet1
 
 export default App
