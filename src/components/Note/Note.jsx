@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdDeleteForever } from 'react-icons/md'
-import { useState } from 'react'
-import styles from './Note.modules.scss'
+
+import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   return (

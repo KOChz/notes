@@ -16,12 +16,11 @@
 .imgNote {
   margin-top: 21px;
   grid-area: logo;
-}
-
-.imgNote:hover {
-  -webkit-animation: spin 5s linear infinite;
-  -moz-animation: spin 5s linear infinite;
-  animation: spin 5s linear infinite;
+  &:hover {
+    -webkit-animation: spin 5s linear infinite;
+    -moz-animation: spin 5s linear infinite;
+    animation: spin 5s linear infinite;
+  }
 }
 
 .notes {
@@ -38,12 +37,11 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.darkMode:hover {
-  background-color: #ededed;
-  transform: scale(1.05);
-  cursor: pointer;
+  &:hover {
+    background-color: #ededed;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 
 @-moz-keyframes spin {
