@@ -5,7 +5,7 @@
   font-size: medium;
 }
 
-.logo-and-notes {
+.logoAndNotes {
   display: grid;
   grid-template-columns: 55px 100px 100px auto;
   grid-gap: 5 px;
@@ -13,12 +13,12 @@
   align-items: start;
 }
 
-.img-note {
+.imgNote {
   margin-top: 21px;
   grid-area: logo;
 }
 
-.img-note:hover {
+.imgNote:hover {
   -webkit-animation: spin 5s linear infinite;
   -moz-animation: spin 5s linear infinite;
   animation: spin 5s linear infinite;
@@ -28,7 +28,7 @@
   grid-area: notes;
 }
 
-.dark-mode {
+.darkMode {
   background-color: #e1e1e1ce;
   border: none;
   border-radius: 15px;
@@ -40,7 +40,7 @@
   transition: transform 0.15s ease-out;
 }
 
-.dark-mode:hover {
+.darkMode:hover {
   background-color: #ededed;
   transform: scale(1.05);
   cursor: pointer;

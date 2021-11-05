@@ -1,7 +1,7 @@
 import React from 'react'
-import './notes-list.styles.css'
-import Note from '../note/note.component'
-import AddNote from '../note/add-note.component'
+import styles from './NotesList.modules.css'
+import Note from '../Note/Note'
+import AddNote from '../Note/AddNote'
 
 // comment2
 
@@ -12,7 +12,7 @@ const NoteList = ({
   handleEditNote,
 }) => {
   return (
-    <div className="notes-list">
+    <div className={styles.notesList}>
       <AddNote handleAddNote={handleAddNote} />
       {notes.map((note) => (
         <Note

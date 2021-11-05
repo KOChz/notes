@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import './../note/note.styles.scss'
+import styles from './Note.modules.scss'
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoneText] = useState('')
@@ -20,7 +20,7 @@ const AddNote = ({ handleAddNote }) => {
   }
 
   return (
-    <div className="note new">
+    <div className={styles.noteNew}>
       <textarea
         rows="6"
         cols="10"
@@ -28,9 +28,9 @@ const AddNote = ({ handleAddNote }) => {
         placeholder="Type to add a note..."
         onChange={handleChange}
       ></textarea>
-      <div className="note-footer">
+      <div className={styles.noteFooter}>
         <small>{charLimit - noteText.length} Remaining</small>
-        <button className="save" onClick={handleSaveClick}>
+        <button className={styles.save} onClick={handleSaveClick}>
           Save
         </button>
       </div>
