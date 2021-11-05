@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdDeleteForever } from 'react-icons/md'
-import { useState } from 'react'
-import './note.styles.scss'
+
+import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   return (
-    <div className="note">
+    <div className={styles.note}>
       {id === handleEditNote.id ? (
         <div className="edit-note">
           <textarea rows="6" cols="10" value={text}></textarea>
         </div>
       ) : (
-        <span className="note-text">{text}</span>
+        <span className={styles.noteText}>{text}</span>
       )}
 
-      <div className="note-footer">
+      <div className={styles.noteFooter}>
         <small>{date}</small>
-        <div className="footer-icons">
+        <div className={styles.footerIcons}>
           <img
             className="edit-icon"
             src="https://img.icons8.com/color/48/000000/edit--v2.png"
@@ -28,7 +28,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
             }}
           />
           <MdDeleteForever
-            className="delete-icon"
+            className={styles.deleteIcon}
             size="1.2em"
             onClick={() => {
               handleDeleteNote(id)

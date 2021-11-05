@@ -20,14 +20,15 @@
   transform: scale(1.025);
 }
 
-.note-footer {
+.noteFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: medium;
 }
 
-.note.new {
+.noteNew {
+  @extend .note;
   background-color: #6dbfb8;
 }
 
@@ -59,36 +60,36 @@ textarea:focus {
   cursor: pointer;
 }
 
-.delete-icon {
+.deleteIcon {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
 }
 
-.delete-icon:hover {
+.deleteIcon:hover {
   cursor: pointer;
   transform: scale(1.15);
 }
 
-.note-text {
+.noteText {
   width: 100%;
   word-wrap: break-word;
   display: 'block';
 }
 
-.footer-icons {
+.footerIcons {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.edit-icon {
+.editIcon {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
 }
 
-.edit-icon:hover {
+.editIcon:hover {
   cursor: pointer;
   transform: scale(1.15);
 }

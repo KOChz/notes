@@ -1,10 +1,10 @@
 import React from 'react'
 import { MdSearch } from 'react-icons/md'
-import './search-bar.styles.scss'
+import styles from './SearchBar.module.scss'
 
-export const Search = ({ handleSearchNote }) => (
-  <div class="search">
-    <MdSearch className="search-icon" size="1.3em" />
+const Search = ({ handleSearchNote }) => (
+  <div class={styles.search}>
+    <MdSearch className={styles.searchIcon} size="1.3em" />
     <input
       onChange={(event) => {
         handleSearchNote(event.target.value)
@@ -15,3 +15,5 @@ export const Search = ({ handleSearchNote }) => (
     />
   </div>
 )
+
+export default Search

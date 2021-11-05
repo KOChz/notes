@@ -1,8 +1,7 @@
-import React from 'react'
-import { useState } from 'react'
-import './../note/note.styles.scss'
+import React, { useState } from 'react'
+import styles from './Note.module.scss'
 
-const EditNote = ({ handleEditNote }) => {
+const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoneText] = useState('')
   const charLimit = 200
 
@@ -14,28 +13,27 @@ const EditNote = ({ handleEditNote }) => {
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleEditNote(noteText)
+      handleAddNote(noteText)
       setNoneText('')
     }
   }
 
   return (
-    <div className="note new">
+    <div className={styles.noteNew}>
       <textarea
         rows="6"
         cols="10"
         value={noteText}
-        placeholder={noteText}
+        placeholder="Type to add a note..."
         onChange={handleChange}
       ></textarea>
-      <div className="note-footer">
+      <div className={styles.noteFooter}>
         <small>{charLimit - noteText.length} Remaining</small>
-        <button className="save" onClick={handleSaveClick}>
+        <button className={styles.save} onClick={handleSaveClick}>
           Save
         </button>
       </div>
     </div>
   )
 }
-
-export default EditNote
+export default AddNote
