@@ -4,6 +4,7 @@ import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
 import './App.css'
+import { AddNoteAnimation } from './animations/AddAndDeleteNoteAnimation'
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -60,16 +61,18 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
-      <Search handleSearchNote={setSearchText} />
-      <NoteList
-        notes={notes.filter((note) =>
-          note.text.toLowerCase().includes(searchText)
-        )}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-        handleEditNote={editNote}
-      />
+      <AddNoteAnimation>
+        <Header />
+        <Search handleSearchNote={setSearchText} />
+        <NoteList
+          notes={notes.filter((note) =>
+            note.text.toLowerCase().includes(searchText)
+          )}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+          handleEditNote={editNote}
+        />
+      </AddNoteAnimation>
     </div>
   )
 }
