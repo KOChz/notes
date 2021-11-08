@@ -18,9 +18,19 @@ const AddNote = ({ handleAddNote }) => {
     }
   }
 
+  const noteTextareaRef = React.useRef(null)
+
+  //useLayoutEffect but not a useEffect cause input need to be rendered in DOM. useLayoutEffect works after rendering
+  //and no need to use state
+  React.useLayoutEffect(() => {
+    noteTextareaRef.current.focus()
+  }, [])
+
   return (
     <div className={styles.noteNew}>
       <textarea
+        ref={noteTextareaRef}
+        className={styles.newTextArea}
         rows="6"
         cols="10"
         value={noteText}

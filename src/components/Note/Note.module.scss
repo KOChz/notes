@@ -32,14 +32,18 @@
   background-color: #6dbfb8;
 }
 
-textarea {
+.newTextArea {
   border: none;
   resize: none;
   background-color: #6dbfb8;
+  &:focus {
+    outline: none;
+  }
 }
 
-textarea:focus {
-  outline: none;
+.editNote {
+  @extend .newTextArea;
+  background-color: #f6de6f;
 }
 
 .save {

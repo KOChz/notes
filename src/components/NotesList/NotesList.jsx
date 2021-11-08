@@ -1,9 +1,8 @@
 import React from 'react'
 import Note from '../Note/Note'
 import AddNote from '../Note/AddNote'
-import styles from './NotesList.modules.css'
 
-// comment2
+import styles from './NotesList.module.css'
 
 const NoteList = ({
   notes,
