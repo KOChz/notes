@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
-import './App.css'
 import { AddNoteAnimation } from './animations/AddAndDeleteNoteAnimation'
+import './App.css'
 
 const App = () => {
   const [notes, setNotes] = useState([
