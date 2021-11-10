@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
-import { AddNoteAnimation } from './animations/AddAndDeleteNoteAnimation'
+import AddNoteAnimation from './ui/animations/AddAnimation'
 import './App.css'
 
 const App = () => {

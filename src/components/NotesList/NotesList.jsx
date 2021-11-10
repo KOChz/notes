@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Note from '../Note/Note'
 import AddNote from '../Note/AddNote'
+import AddNoteAnimation from '../../ui/animations/AddAnimation'
+import DeleteNoteAnimation from '../../ui/animations/DeleteAnimation'
 import styles from './NotesList.module.css'
 
 const NoteList = ({

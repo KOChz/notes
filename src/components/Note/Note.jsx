@@ -1,13 +1,16 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
-import { AddNoteAnimation } from '../../ui/animations/AddAndDeleteNoteAnimation'
+import AddNoteAnimation from '../../ui/animations/AddAnimation'
+import DeleteNoteAnimation from '../../ui/animations/DeleteAnimation'
 import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
-  const [isEdit, setIsEdit] = useState(false)
   const [isDeleted, setIsDeleted] = useState(false)
-  const [newText, setNewText] = useState('')
+  const AnimationType = !isDeleted ? DeleteNoteAnimation : AddNoteAnimation
 
+  const handleToggleAnimation = () => setIsDeleted(!isDeleted)
+
+  const [isEdit, setIsEdit] = useState(false)
   const handleToggleEdit = () => {
     if (!isEdit) {
       setNewText(text)
@@ -15,6 +18,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
     setIsEdit(!isEdit)
   }
 
+  const [newText, setNewText] = useState('')
   const handleTextChange = (e) => {
     setNewText(e.target.value)
   }
@@ -36,7 +40,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   }, [isEdit])
 
   return (
-    <AddNoteAnimation>
+    <AnimationType>
       <div className={styles.note}>
         {isEdit ? (
           <div>
@@ -74,12 +78,15 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
             <MdDeleteForever
               className={styles.deleteIcon}
               size="1.2em"
-              onClick={() => handleDeleteNote(id)}
+              onClick={() => {
+                handleDeleteNote(id)
+                handleToggleAnimation()
+              }}
             />
           </div>
         </div>
       </div>
-    </AddNoteAnimation>
+    </AnimationType>
   )
 }
 
