@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
-import { AddNoteAnimation } from '../../animations/AddAndDeleteNoteAnimation'
+import { AddNoteAnimation } from '../../ui/animations/AddAndDeleteNoteAnimation'
 import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   const [isEdit, setIsEdit] = useState(false)
+  const [isDeleted, setIsDeleted] = useState(false)
   const [newText, setNewText] = useState('')
 
   const handleToggleEdit = () => {
@@ -27,10 +28,10 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
     })
   }
 
-  const noteTextareaRef = React.useRef(null)
+  const noteTextareaRef = useRef(null)
 
   //useLayoutEffect but not a useEffect cause input need to be rendered in DOM. useLayoutEffect works after rendering
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (isEdit) noteTextareaRef.current.focus()
   }, [isEdit])
 

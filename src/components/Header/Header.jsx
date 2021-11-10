@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme, GlobalStyles } from './../../themes'
+import { lightTheme, darkTheme, GlobalStyles } from '../../ui/themes'
 import styles from './Header.module.scss'
 
 const StyledApp = styled.div`
@@ -8,7 +8,7 @@ const StyledApp = styled.div`
 `
 
 const Header = () => {
-  const [theme, setTheme] = React.useState('light')
+  const [theme, setTheme] = useState('light')
 
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')

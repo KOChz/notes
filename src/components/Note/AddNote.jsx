@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import styles from './Note.module.scss'
 
 const AddNote = ({ handleAddNote }) => {
@@ -18,11 +18,11 @@ const AddNote = ({ handleAddNote }) => {
     }
   }
 
-  const noteTextareaRef = React.useRef(null)
+  const noteTextareaRef = useRef(null)
 
   //useLayoutEffect but not a useEffect cause input need to be rendered in DOM. useLayoutEffect works after rendering
   //and no need to use state
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     noteTextareaRef.current.focus()
   }, [])
 
