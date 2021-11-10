@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
-import AddNoteAnimation from './ui/animations/AddAnimation'
 import './App.css'
 
 const App = () => {
@@ -61,18 +60,16 @@ const App = () => {
 
   return (
     <div className="container">
-      <AddNoteAnimation>
-        <Header />
-        <Search handleSearchNote={setSearchText} />
-        <NoteList
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
-          )}
-          handleAddNote={addNote}
-          handleDeleteNote={deleteNote}
-          handleEditNote={editNote}
-        />
-      </AddNoteAnimation>
+      <Header />
+      <Search handleSearchNote={setSearchText} />
+      <NoteList
+        notes={notes.filter((note) =>
+          note.text.toLowerCase().includes(searchText)
+        )}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+        handleEditNote={editNote}
+      />
     </div>
   )
 }

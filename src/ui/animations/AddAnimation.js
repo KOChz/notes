@@ -9,7 +9,6 @@ const AddNoteAnimation = styled.div`
       opacity: 1;
     }
   }
-
   animation-name: appear;
   animation-duration: 1s;
 `

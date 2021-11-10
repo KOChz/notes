@@ -1,7 +1,8 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
+import { animationTypes } from '../NotesList/NotesList'
 import styles from './Note.module.scss'
 
-const AddNote = ({ handleAddNote }) => {
+const AddNote = ({ handleAddNote, handleToggleAnimation }) => {
   const [noteText, setNoneText] = useState('')
   const charLimit = 200
 
@@ -19,7 +20,6 @@ const AddNote = ({ handleAddNote }) => {
   }
 
   const noteTextareaRef = useRef(null)
-
   //useLayoutEffect but not a useEffect cause input need to be rendered in DOM. useLayoutEffect works after rendering
   //and no need to use state
   useLayoutEffect(() => {
@@ -39,7 +39,13 @@ const AddNote = ({ handleAddNote }) => {
       ></textarea>
       <div className={styles.noteFooter}>
         <small>{charLimit - noteText.length} Remaining</small>
-        <button className={styles.save} onClick={handleSaveClick}>
+        <button
+          className={styles.save}
+          onClick={() => {
+            handleSaveClick()
+            handleToggleAnimation(animationTypes.ANIM_TYPE_ADD)
+          }}
+        >
           Save
         </button>
       </div>
