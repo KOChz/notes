@@ -97,3 +97,31 @@
   cursor: pointer;
   transform: scale(1.15);
 }
+
+.deleteAnimation {
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation-name: disappear;
+  animation-duration: 0.5s;
+}
+
+.addAnimation {
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  animation-name: appear;
+  animation-duration: 0.5s;
+}

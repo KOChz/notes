@@ -43,7 +43,6 @@ const AddNote = ({ handleAddNote, handleToggleAnimation }) => {
           className={styles.save}
           onClick={() => {
             handleSaveClick()
-            handleToggleAnimation(animationTypes.ANIM_TYPE_ADD)
           }}
         >
           Save

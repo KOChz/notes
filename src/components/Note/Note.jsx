@@ -1,16 +1,18 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
-import { animationTypes } from '../NotesList/NotesList'
+//import AddNoteAnimation from "../../ui/animations/AddAnimation";
+//import DeleteNoteAnimation from "../../ui/animations/DeleteAnimation";
 import styles from './Note.module.scss'
+import classnames from 'classnames'
 
-const Note = ({
-  id,
-  text,
-  date,
-  handleDeleteNote,
-  handleEditNote,
-  handleToggleAnimation,
-}) => {
+const animationTypes = {
+  ANIM_TYPE_DELETE: 'deleteAnimation',
+  ANIM_TYPE_ADD: 'addAnimation',
+}
+
+const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
+  const [animType, setAnimType] = useState(animationTypes.ANIM_TYPE_ADD)
+
   const [isEdit, setIsEdit] = useState(false)
   const handleToggleEdit = () => {
     if (!isEdit) {
@@ -39,8 +41,16 @@ const Note = ({
     if (isEdit) noteTextareaRef.current.focus()
   }, [isEdit])
 
+  useEffect(() => {
+    return () => {
+      console.log('unmounted')
+      //setAnimType(animationTypes.ANIM_TYPE_ADD);
+    }
+  }, [])
+
+  console.log(text, animType)
   return (
-    <div className={styles.note}>
+    <div className={classnames(styles.note, styles[animType])}>
       {isEdit ? (
         <div>
           <textarea
@@ -71,15 +81,15 @@ const Note = ({
             <MdCheck
               className="delete-icon"
               size="1.2em"
-              onClick={() => onNoteSave}
+              onClick={onNoteSave}
             />
           )}
           <MdDeleteForever
             className={styles.deleteIcon}
             size="1.2em"
             onClick={() => {
-              handleDeleteNote(id)
-              handleToggleAnimation(animationTypes.ANIM_TYPE_DELETE)
+              setAnimType(animationTypes.ANIM_TYPE_DELETE)
+              setTimeout(() => handleDeleteNote(id), 500)
             }}
           />
         </div>
