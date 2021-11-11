@@ -11,16 +11,14 @@
   border: none;
   background-color: rgb(233, 233, 233);
   width: 100%;
-}
-
-.search input:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .searchIcon {
   cursor: pointer;
-}
-
-.searchIcon:hover {
-  transform: scale(1.15);
+  &:hover {
+    transform: scale(1.15);
+  }
 }
