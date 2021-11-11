@@ -16,11 +16,6 @@
 .imgNote {
   margin-top: 21px;
   grid-area: logo;
-  &:hover {
-    -webkit-animation: spin 5s linear infinite;
-    -moz-animation: spin 5s linear infinite;
-    animation: spin 5s linear infinite;
-  }
 }
 
 .notes {
