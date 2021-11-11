@@ -14,10 +14,9 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-}
-
-.note:hover {
-  transform: scale(1.025);
+  &:hover {
+    transform: scale(1.025);
+  }
 }
 
 .noteFooter {
@@ -32,14 +31,18 @@
   background-color: #6dbfb8;
 }
 
-textarea {
+.newTextArea {
   border: none;
   resize: none;
   background-color: #6dbfb8;
+  &:focus {
+    outline: none;
+  }
 }
 
-textarea:focus {
-  outline: none;
+.editNote {
+  @extend .newTextArea;
+  background-color: #f6de6f;
 }
 
 .save {
@@ -52,23 +55,21 @@ textarea:focus {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.save:hover {
-  background-color: #ededed;
-  transform: scale(1.1);
-  cursor: pointer;
+  &:hover {
+    background-color: #ededed;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 }
 
 .deleteIcon {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.deleteIcon:hover {
-  cursor: pointer;
-  transform: scale(1.15);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
 }
 
 .noteText {
@@ -87,9 +88,36 @@ textarea:focus {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
 }
 
-.editIcon:hover {
-  cursor: pointer;
-  transform: scale(1.15);
+.deleteAnimation {
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation-name: disappear;
+  animation-duration: 0.5s;
+}
+
+.addAnimation {
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  animation-name: appear;
+  animation-duration: 0.5s;
 }

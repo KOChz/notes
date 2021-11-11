@@ -1,9 +1,7 @@
 import React from 'react'
 import Note from '../Note/Note'
 import AddNote from '../Note/AddNote'
-import styles from './NotesList.modules.css'
-
-// comment2
+import styles from './NotesList.module.scss'
 
 const NoteList = ({
   notes,
@@ -16,6 +14,7 @@ const NoteList = ({
       <AddNote handleAddNote={handleAddNote} />
       {notes.map((note) => (
         <Note
+          key={note.id}
           id={note.id}
           text={note.text}
           date={note.date}

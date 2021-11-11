@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
-import { Search } from './components/SearchBar'
+import Search from './components/SearchBar'
 import './App.css'
 
 const App = () => {
@@ -45,14 +45,17 @@ const App = () => {
     setNotes(newNotes)
   }
 
-  const editNote = (id, text) => {
-    const editedNote = {
-      text: text,
-      id: nanoid(),
-    }
-
-    const editedNotes = [...notes, editedNote]
-    setNotes(editedNotes)
+  const editNote = (editedNote) => {
+    setNotes(
+      notes.map((note) =>
+        note.id === editedNote.id
+          ? {
+              ...note,
+              ...editedNote,
+            }
+          : note
+      )
+    )
   }
 
   return (
@@ -70,7 +73,5 @@ const App = () => {
     </div>
   )
 }
-
-// commet1
 
 export default App
