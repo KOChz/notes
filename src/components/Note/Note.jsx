@@ -1,7 +1,5 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
-//import AddNoteAnimation from "../../ui/animations/AddAnimation";
-//import DeleteNoteAnimation from "../../ui/animations/DeleteAnimation";
 import styles from './Note.module.scss'
 import classnames from 'classnames'
 
@@ -42,13 +40,9 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   }, [isEdit])
 
   useEffect(() => {
-    return () => {
-      console.log('unmounted')
-      //setAnimType(animationTypes.ANIM_TYPE_ADD);
-    }
+    return () => {}
   }, [])
 
-  console.log(text, animType)
   return (
     <div className={classnames(styles.note, styles[animType])}>
       {isEdit ? (
@@ -71,16 +65,16 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
           {!isEdit ? (
             <img
               className={styles.editIcon}
-              src="https://img.icons8.com/color/48/000000/edit--v2.png"
+              src="https://img.icons8.com/material-sharp/50/000000/edit--v1.png"
               alt="Editing icon"
               width="18"
-              height="18"
+              height="17"
               onClick={handleToggleEdit}
             />
           ) : (
             <MdCheck
-              className="delete-icon"
-              size="1.2em"
+              className={styles.deleteIcon}
+              size="1.4em"
               onClick={onNoteSave}
             />
           )}

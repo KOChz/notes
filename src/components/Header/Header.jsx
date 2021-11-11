@@ -23,12 +23,16 @@ const Header = () => {
             src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-note-back-to-school-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
             width="35"
             height="35"
+            alt="Logo"
           />
           <h1 className={styles.notes}>Notes</h1>
         </div>
-        <button className={styles.darkMode} onClick={() => themeToggler()}>
-          Switch Theme
-        </button>
+        <img
+          className={styles.darkMode}
+          src="https://img.icons8.com/ios/50/000000/day-and-night.png"
+          onClick={() => themeToggler()}
+          alt="Theme Toggler"
+        />
       </StyledApp>
     </ThemeProvider>
   )

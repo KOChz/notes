@@ -1,5 +1,4 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
-import { animationTypes } from '../NotesList/NotesList'
 import styles from './Note.module.scss'
 
 const AddNote = ({ handleAddNote, handleToggleAnimation }) => {

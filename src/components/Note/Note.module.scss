@@ -14,10 +14,9 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-}
-
-.note:hover {
-  transform: scale(1.025);
+  &:hover {
+    transform: scale(1.025);
+  }
 }
 
 .noteFooter {
@@ -56,23 +55,21 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.save:hover {
-  background-color: #ededed;
-  transform: scale(1.1);
-  cursor: pointer;
+  &:hover {
+    background-color: #ededed;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 }
 
 .deleteIcon {
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.deleteIcon:hover {
-  cursor: pointer;
-  transform: scale(1.15);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
 }
 
 .noteText {
@@ -91,11 +88,10 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.15s ease-out;
-}
-
-.editIcon:hover {
-  cursor: pointer;
-  transform: scale(1.15);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
 }
 
 .deleteAnimation {
