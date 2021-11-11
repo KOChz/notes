@@ -19,10 +19,10 @@ const Header = () => {
       <StyledApp className={styles.header}>
         <div className={styles.logoAndNotes}>
           <img
+            src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-note-documents-icongeek26-linear-colour-icongeek26.png"
             className={styles.imgNote}
-            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-note-back-to-school-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
-            width="35"
-            height="35"
+            width="40"
+            height="40"
             alt="Logo"
           />
           <h1 className={styles.notes}>Notes</h1>
