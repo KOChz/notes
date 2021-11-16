@@ -1,12 +1,12 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
+import { CharLimit } from '../../constants/Constants'
 import styles from './Note.module.scss'
 
 const AddNote = ({ handleAddNote, handleToggleAnimation }) => {
   const [noteText, setNoneText] = useState('')
-  const charLimit = 200
 
   const handleChange = (event) => {
-    if (charLimit - event.target.value.length >= 0) {
+    if (CharLimit - event.target.value.length >= 0) {
       setNoneText(event.target.value)
     }
   }
@@ -23,7 +23,7 @@ const AddNote = ({ handleAddNote, handleToggleAnimation }) => {
   //and no need to use state
   useLayoutEffect(() => {
     noteTextareaRef.current.focus()
-  }, [])
+  }, [noteTextareaRef])
 
   return (
     <div className={styles.noteNew}>
@@ -37,7 +37,7 @@ const AddNote = ({ handleAddNote, handleToggleAnimation }) => {
         onChange={handleChange}
       ></textarea>
       <div className={styles.noteFooter}>
-        <small>{charLimit - noteText.length} Remaining</small>
+        <small>{CharLimit - noteText.length} Remaining</small>
         <button
           className={styles.save}
           onClick={() => {

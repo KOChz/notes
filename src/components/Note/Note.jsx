@@ -1,17 +1,13 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
-import IsEditingNote from './IsEditingNote'
-import styles from './Note.module.scss'
 import classnames from 'classnames'
+import IsEditingNote from './IsEditingNote'
+import { AnimationTypes } from '../../constants/AnimationTypes'
 import EditingIcon from './EditingIcon'
-
-const animationTypes = {
-  ANIM_TYPE_DELETE: 'deleteAnimation',
-  ANIM_TYPE_ADD: 'addAnimation',
-}
+import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
-  const [animType, setAnimType] = useState(animationTypes.ANIM_TYPE_ADD)
+  const [animType, setAnimType] = useState(AnimationTypes.ANIM_TYPE_ADD)
 
   const [isEdit, setIsEdit] = useState(false)
   const handleToggleEdit = () => {
@@ -48,14 +44,12 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   return (
     <div className={classnames(styles.note, styles[animType])}>
       {isEdit ? (
-        <div>
-          <IsEditingNote
-            formalClassName={styles.editNote}
-            formalRef={noteTextareaRef}
-            formalOnChange={handleTextChange}
-            formalValue={newText}
-          />
-        </div>
+        <IsEditingNote
+          formalClassName={styles.editNote}
+          formalRef={noteTextareaRef}
+          formalOnChange={handleTextChange}
+          formalValue={newText}
+        />
       ) : (
         <span className={styles.noteText}>{text}</span>
       )}
@@ -78,7 +72,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
             className={styles.deleteIcon}
             size="1.2em"
             onClick={() => {
-              setAnimType(animationTypes.ANIM_TYPE_DELETE)
+              setAnimType(AnimationTypes.ANIM_TYPE_DELETE)
               setTimeout(() => handleDeleteNote(id), 500)
             }}
           />
