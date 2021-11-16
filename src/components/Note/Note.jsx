@@ -1,5 +1,6 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import { MdDeleteForever, MdCheck } from 'react-icons/md'
+import EditingNote from './ImgEditing'
 import styles from './Note.module.scss'
 import classnames from 'classnames'
 
