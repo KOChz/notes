@@ -19,24 +19,24 @@ const Header = ({ handleSort }) => {
       <StyledApp className={styles.header}>
         <div className={styles.logoAndNotes}>
           <img
-            src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-note-documents-icongeek26-linear-colour-icongeek26.png"
+            src="https://img.icons8.com/doodle/192/000000/apple-notes.png"
             className={styles.imgNote}
-            width="40"
-            height="40"
+            width="45"
+            height="45"
             alt="Logo"
           />
           <h1 className={styles.notes}>Notes</h1>
         </div>
         <div className={styles.themeAndSort}>
           <img
-            src="https://img.icons8.com/pastel-glyph/64/000000/generic-sorting.png"
+            src="https://img.icons8.com/pastel-glyph/192/000000/generic-sorting.png"
             alt="Sort Icon"
             className={styles.button}
             onClick={() => handleSort()}
           />
           <img
             className={styles.button}
-            src="https://img.icons8.com/ios/64/000000/day-and-night.png"
+            src="https://img.icons8.com/ios/192/000000/day-and-night.png"
             onClick={themeToggler}
             alt="Theme Toggler"
           />

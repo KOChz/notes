@@ -3,7 +3,9 @@ import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
-import './App.css'
+import classnames from 'classnames'
+import styles from './components/Note/Note.module.scss'
+import './App.scss'
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -67,17 +69,19 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Header handleSort={Sort} />
-      <Search handleSearchNote={setSearchText} />
-      <NoteList
-        notes={notes.filter((note) =>
-          note.text.toLowerCase().includes(searchText)
-        )}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-        handleEditNote={editNote}
-      />
+    <div className={styles.addAnimation}>
+      <div className="container">
+        <Header handleSort={Sort} />
+        <Search handleSearchNote={setSearchText} />
+        <NoteList
+          notes={notes.filter((note) =>
+            note.text.toLowerCase().includes(searchText)
+          )}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+          handleEditNote={editNote}
+        />
+      </div>
     </div>
   )
 }
