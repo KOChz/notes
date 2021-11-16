@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
-import classnames from 'classnames'
+import reverseArray from './utils/ReverseArray'
 import styles from './components/Note/Note.module.scss'
 import './App.scss'
 
@@ -15,11 +15,6 @@ const App = () => {
       date: '',
     },
   ])
-
-  const reverseArray = (array) => {
-    const reversedArray = array.reverse()
-    return reversedArray
-  }
 
   const Sort = () => {
     const sortedNotes = notes
