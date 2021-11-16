@@ -14,11 +14,19 @@ const App = () => {
     },
   ])
 
-  const [searchText, setSearchText] = useState('')
+  const reverseArray = (array) => {
+    const reversedArray = array.reverse()
+    return reversedArray
+  }
 
+  const Sort = () => {
+    const sortedNotes = notes
+    setNotes(reverseArray([...sortedNotes]))
+  }
+
+  const [searchText, setSearchText] = useState('')
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'))
-
     if (savedNotes) {
       setNotes(savedNotes)
     }
@@ -60,7 +68,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header handleSort={Sort} />
       <Search handleSearchNote={setSearchText} />
       <NoteList
         notes={notes.filter((note) =>

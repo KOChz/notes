@@ -7,7 +7,7 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `
 
-const Header = () => {
+const Header = ({ handleSort }) => {
   const [theme, setTheme] = useState('light')
 
   const themeToggler = () => {
@@ -27,12 +27,20 @@ const Header = () => {
           />
           <h1 className={styles.notes}>Notes</h1>
         </div>
-        <img
-          className={styles.darkMode}
-          src="https://img.icons8.com/ios/50/000000/day-and-night.png"
-          onClick={() => themeToggler()}
-          alt="Theme Toggler"
-        />
+        <div className={styles.themeAndSort}>
+          <img
+            src="https://img.icons8.com/pastel-glyph/64/000000/generic-sorting.png"
+            alt="Sort Icon"
+            className={styles.button}
+            onClick={() => handleSort()}
+          />
+          <img
+            className={styles.button}
+            src="https://img.icons8.com/ios/64/000000/day-and-night.png"
+            onClick={themeToggler}
+            alt="Theme Toggler"
+          />
+        </div>
       </StyledApp>
     </ThemeProvider>
   )
