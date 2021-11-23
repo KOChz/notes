@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Provider } from 'react-redux'
 import { nanoid } from 'nanoid'
 import Header from './components/Header'
 import NoteList from './components/NotesList'
 import Search from './components/SearchBar'
 import reverseArray from './utils/ReverseArray'
+import store from './redux/store'
+
 import styles from './components/Note/Note.module.scss'
 import './App.scss'
 
@@ -33,17 +36,17 @@ const App = () => {
     localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
   }, [notes])
 
-  const addNote = (text) => {
-    const date = new Date()
-    const newNote = {
-      text: text,
-      date: date.toLocaleDateString(),
-      id: nanoid(),
-    }
+  // const addNote = (text) => {
+  //   const date = new Date()
+  //   const newNote = {
+  //     text: text,
+  //     date: date.toLocaleDateString(),
+  //     id: nanoid(),
+  //   }
 
-    const newNotes = [...notes, newNote]
-    setNotes(newNotes)
-  }
+  //   const newNotes = [...notes, newNote]
+  //   setNotes(newNotes)
+  // }
 
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id)
@@ -64,20 +67,22 @@ const App = () => {
   }
 
   return (
-    <div className={styles.addAnimation}>
-      <div className="container">
-        <Header handleSort={Sort} />
-        <Search handleSearchNote={setSearchText} />
-        <NoteList
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
-          )}
-          handleAddNote={addNote}
-          handleDeleteNote={deleteNote}
-          handleEditNote={editNote}
-        />
+    <Provider store={store}>
+      <div className={styles.addAnimation}>
+        <div className="container">
+          <Header handleSort={Sort} />
+          <Search handleSearchNote={setSearchText} />
+          <NoteList
+            notes={notes.filter((note) =>
+              note.text.toLowerCase().includes(searchText)
+            )}
+            // handleAddNote={addNote}
+            handleDeleteNote={deleteNote}
+            handleEditNote={editNote}
+          />
+        </div>
       </div>
-    </div>
+    </Provider>
   )
 }
 

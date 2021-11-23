@@ -1,4 +1,10 @@
-import { createStore } from 'redux'
-import rootReducer from './reducer'
+import { createStore, combineReducers } from 'redux'
+import notes from './notes/reducer'
 
-export default createStore(rootReducer)
+// const rootReducer = combineReducers({
+//   notes
+// });
+
+console.log('notes', notes)
+
+export default createStore(notes)
