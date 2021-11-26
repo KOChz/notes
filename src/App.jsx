@@ -11,30 +11,30 @@ import styles from './components/Note/Note.module.scss'
 import './App.scss'
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: '',
-      date: '',
-    },
-  ])
+  // const [notes, setNotes] = useState([
+  //   {
+  //     id: nanoid(),
+  //     text: '',
+  //     date: '',
+  //   },
+  // ])
 
-  const Sort = () => {
-    const sortedNotes = notes
-    setNotes(reverseArray([...sortedNotes]))
-  }
+  // const Sort = () => {
+  //   const sortedNotes = notes
+  //   setNotes(reverseArray([...sortedNotes]))
+  // }
 
-  const [searchText, setSearchText] = useState('')
-  useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'))
-    if (savedNotes) {
-      setNotes(savedNotes)
-    }
-  }, [])
+  // const [searchText, setSearchText] = useState('')
+  // useEffect(() => {
+  //   const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'))
+  //   if (savedNotes) {
+  //     setNotes(savedNotes)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
-  }, [notes])
+  // useEffect(() => {
+  //   localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
+  // }, [notes])
 
   // const addNote = (text) => {
   //   const date = new Date()
@@ -48,37 +48,37 @@ const App = () => {
   //   setNotes(newNotes)
   // }
 
-  const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id)
-    setNotes(newNotes)
-  }
+  // const deleteNote = (id) => {
+  //   const newNotes = notes.filter((note) => note.id !== id)
+  //   setNotes(newNotes)
+  // }
 
-  const editNote = (editedNote) => {
-    setNotes(
-      notes.map((note) =>
-        note.id === editedNote.id
-          ? {
-              ...note,
-              ...editedNote,
-            }
-          : note
-      )
-    )
-  }
+  // const editNote = (editedNote) => {
+  //   setNotes(
+  //     notes.map((note) =>
+  //       note.id === editedNote.id
+  //         ? {
+  //             ...note,
+  //             ...editedNote,
+  //           }
+  //         : note
+  //     )
+  //   )
+  // }
 
   return (
     <Provider store={store}>
       <div className={styles.addAnimation}>
         <div className="container">
-          <Header handleSort={Sort} />
-          <Search handleSearchNote={setSearchText} />
+          <Header />
+          <Search />
           <NoteList
-            notes={notes.filter((note) =>
-              note.text.toLowerCase().includes(searchText)
-            )}
-            // handleAddNote={addNote}
-            handleDeleteNote={deleteNote}
-            handleEditNote={editNote}
+          // notes={notes.filter((note) =>
+          //   note.text.toLowerCase().includes(searchText)
+          // )}
+          // handleAddNote={addNote}
+          // handleDeleteNote={deleteNote}
+          // handleEditNote={editNote}
           />
         </div>
       </div>

@@ -6,32 +6,28 @@ import { addNoteAction, deleteNoteAction } from '../../redux/notes/actions'
 
 import styles from './NotesList.module.scss'
 
-const NoteList = ({
-  notes,
-  reduxNotes,
-  handleAddNote,
-  handleDeleteNote,
-  handleEditNote,
-  addNoteAction,
-  deleteNoteAction,
-}) => {
+const NoteList = ({ Notes, addNoteAction, deleteNoteAction }) => {
+  console.log(Notes)
   // alternative
-  // const notes = useSelector(store => store.notes);
-  // const dispatch = useDispatch();
-  // handleAddNote = (text) => { dispatch(addNote(text))};
-  console.log(reduxNotes)
+  // const notes = useSelector((store) => store.notes)
+  // const dispatch = useDispatch()
+  // handleAddNote = (text) => {
+  //   dispatch(addNote(text))
+  // }
+
   return (
     <div className={styles.notesList}>
-      <AddNote handleAddNote={addNoteAction} />{' '}
+      <AddNote handleAddNote={addNoteAction} />
       {/* here is an action of adding note */}
-      {reduxNotes.map((note) => (
+
+      {Notes.map((note) => (
         <Note
           key={note.id}
           id={note.id}
           text={note.text}
           date={note.date}
           handleDeleteNote={deleteNoteAction}
-          handleEditNote={handleEditNote}
+          // handleEditNote={handleEditNote}
         />
       ))}
     </div>
@@ -39,7 +35,7 @@ const NoteList = ({
 }
 
 const mapStateToProps = (state) => ({
-  reduxNotes: state.notes || [],
+  Notes: state.notes || [],
 })
 
 const mapDispatchToProps = (dispatch) => ({

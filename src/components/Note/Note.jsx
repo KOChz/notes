@@ -4,6 +4,9 @@ import classnames from 'classnames'
 import IsEditingNote from './IsEditingNote'
 import { AnimationTypes } from '../../constants/AnimationTypes'
 import EditingIcon from './EditingIcon'
+import { connect, useSelector, useDispatch, shallowEqual } from 'react-redux'
+import { deleteNoteAction } from '../../redux/notes/actions'
+
 import styles from './Note.module.scss'
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {

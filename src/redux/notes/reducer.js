@@ -28,17 +28,8 @@ export default function notes(state = initialState, { type, payload }) {
       }
     }
     case DELETE_NOTE: {
-      const deletedNote = {
-        text: payload,
-        id: payload,
-        date: date.toLocaleDateString(),
-      }
-
-      const deleteNote = (id) => deletedNote.filter((note) => note.id !== id)
-
       return {
-        ...state,
-        notes: [...state.notes, deleteNote],
+        notes: (id) => state.notes.filter((note) => note.id !== id),
       }
     }
     default:
