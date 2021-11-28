@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { ADD_NOTE, DELETE_NOTE } from './actionTypes'
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from './actionTypes'
 
 const date = new Date()
 
@@ -29,7 +29,22 @@ export default function notes(state = initialState, { type, payload }) {
     }
     case DELETE_NOTE: {
       return {
-        notes: (id) => state.notes.filter((note) => note.id !== id),
+        notes: state.notes.filter((note) => note.id !== payload),
+      }
+    }
+    case EDIT_NOTE: {
+      const editedNote = {
+        text: payload,
+      }
+      return {
+        notes: state.notes.map((note) =>
+          note.id === state.notes.id
+            ? {
+                ...state,
+                notes: [...state.notes, editedNote],
+              }
+            : state
+        ),
       }
     }
     default:

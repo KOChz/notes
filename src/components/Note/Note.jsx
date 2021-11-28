@@ -4,18 +4,25 @@ import classnames from 'classnames'
 import IsEditingNote from './IsEditingNote'
 import { AnimationTypes } from '../../constants/AnimationTypes'
 import EditingIcon from './EditingIcon'
-import { connect, useSelector, useDispatch, shallowEqual } from 'react-redux'
-import { deleteNoteAction } from '../../redux/notes/actions'
-
 import styles from './Note.module.scss'
+import { editNoteAction } from '../../redux/notes/actions'
+import { connect } from 'react-redux'
 
-const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
+const Note = ({
+  id,
+  text,
+  date,
+  handleDeleteNote,
+  handleEditNote,
+  editNoteAction,
+  Notes,
+}) => {
   const [animType, setAnimType] = useState(AnimationTypes.ANIM_TYPE_ADD)
 
   const [isEdit, setIsEdit] = useState(false)
   const handleToggleEdit = () => {
     if (!isEdit) {
-      setNewText(text)
+      editNoteAction(text)
     }
     setIsEdit(!isEdit)
   }
@@ -27,7 +34,7 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
 
   const onNoteSave = () => {
     handleToggleEdit()
-    handleEditNote({
+    editNoteAction({
       id,
       date,
       text: newText,
@@ -85,4 +92,12 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
   )
 }
 
-export default Note
+const mapStateToProps = (state) => ({
+  Notes: state.notes || [],
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  editNoteAction: (id) => dispatch(editNoteAction(id)),
+})
+
+export default connect(mapDispatchToProps, mapStateToProps)(Note)

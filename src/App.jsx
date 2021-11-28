@@ -36,20 +36,7 @@ const App = () => {
   //   localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
   // }, [notes])
 
-  // const addNote = (text) => {
-  //   const date = new Date()
-  //   const newNote = {
-  //     text: text,
-  //     date: date.toLocaleDateString(),
-  //     id: nanoid(),
-  //   }
-
   //   const newNotes = [...notes, newNote]
-  //   setNotes(newNotes)
-  // }
-
-  // const deleteNote = (id) => {
-  //   const newNotes = notes.filter((note) => note.id !== id)
   //   setNotes(newNotes)
   // }
 
