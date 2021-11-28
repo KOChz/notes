@@ -11,16 +11,16 @@ import {
 import styles from './NotesList.module.scss'
 
 const NoteList = ({
-  Notes,
+  notes,
   addNoteAction,
   deleteNoteAction,
   editNoteAction,
 }) => {
-  console.log(Notes)
+  console.log(notes, 'notes')
   return (
     <div className={styles.notesList}>
       <AddNote handleAddNote={addNoteAction} />
-      {Notes.map((note) => (
+      {notes.map((note) => (
         <Note
           key={note.id}
           id={note.id}
@@ -35,7 +35,7 @@ const NoteList = ({
 }
 
 const mapStateToProps = (state) => ({
-  Notes: state.notes || [],
+  notes: state.notes || [],
 })
 
 const mapDispatchToProps = (dispatch) => ({

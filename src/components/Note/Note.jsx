@@ -8,48 +8,29 @@ import styles from './Note.module.scss'
 import { editNoteAction } from '../../redux/notes/actions'
 import { connect } from 'react-redux'
 
-const Note = ({
-  id,
-  text,
-  date,
-  handleDeleteNote,
-  handleEditNote,
-  editNoteAction,
-  Notes,
-}) => {
+const Note = ({ id, text, date, handleDeleteNote, editNoteAction }) => {
   const [animType, setAnimType] = useState(AnimationTypes.ANIM_TYPE_ADD)
-
+  const [newText, setNewText] = useState(text)
   const [isEdit, setIsEdit] = useState(false)
+  const noteTextareaRef = useRef(null)
+  console.log(newText, 'new fucking text')
   const handleToggleEdit = () => {
-    if (!isEdit) {
-      editNoteAction(text)
-    }
     setIsEdit(!isEdit)
   }
 
-  const [newText, setNewText] = useState('')
   const handleTextChange = (e) => {
     setNewText(e.target.value)
   }
 
   const onNoteSave = () => {
+    editNoteAction(id, newText)
     handleToggleEdit()
-    editNoteAction({
-      id,
-      date,
-      text: newText,
-    })
   }
 
-  const noteTextareaRef = useRef(null)
   //useLayoutEffect but not a useEffect cause input need to be rendered in DOM. useLayoutEffect works after rendering
   useLayoutEffect(() => {
     if (isEdit) noteTextareaRef.current.focus()
   }, [isEdit])
-
-  useEffect(() => {
-    return () => {}
-  }, [])
 
   return (
     <div className={classnames(styles.note, styles[animType])}>
@@ -92,12 +73,10 @@ const Note = ({
   )
 }
 
-const mapStateToProps = (state) => ({
-  Notes: state.notes || [],
-})
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
-  editNoteAction: (id) => dispatch(editNoteAction(id)),
+  editNoteAction: (id, text) => dispatch(editNoteAction(id, text)),
 })
 
-export default connect(mapDispatchToProps, mapStateToProps)(Note)
+export default connect(mapStateToProps, mapDispatchToProps)(Note)

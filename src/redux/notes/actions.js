@@ -10,7 +10,10 @@ export const deleteNoteAction = (id) => ({
   payload: id,
 })
 
-export const editNoteAction = (text) => ({
+export const editNoteAction = (id, text) => ({
   type: EDIT_NOTE,
-  payload: text,
+  payload: {
+    id,
+    text,
+  },
 })

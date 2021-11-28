@@ -14,7 +14,6 @@ export const initialState = {
 }
 
 export default function notes(state = initialState, { type, payload }) {
-  console.log(type)
   switch (type) {
     case ADD_NOTE: {
       const newNote = {
@@ -29,21 +28,20 @@ export default function notes(state = initialState, { type, payload }) {
     }
     case DELETE_NOTE: {
       return {
+        ...state,
         notes: state.notes.filter((note) => note.id !== payload),
       }
     }
     case EDIT_NOTE: {
-      const editedNote = {
-        text: payload,
-      }
       return {
+        ...state,
         notes: state.notes.map((note) =>
-          note.id === state.notes.id
+          note.id === payload.id
             ? {
-                ...state,
-                notes: [...state.notes, editedNote],
+                ...note,
+                text: payload.text,
               }
-            : state
+            : note
         ),
       }
     }
