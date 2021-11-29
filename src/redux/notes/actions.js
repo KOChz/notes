@@ -1,4 +1,10 @@
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from './actionTypes'
+import {
+  ADD_NOTE,
+  DELETE_NOTE,
+  EDIT_NOTE,
+  SORT_NOTE,
+  SEARCH_NOTE,
+} from './actionTypes'
 
 export const addNoteAction = (text) => ({
   type: ADD_NOTE,
@@ -16,4 +22,14 @@ export const editNoteAction = (id, text) => ({
     id,
     text,
   },
+})
+
+export const sortNoteAction = (notes) => ({
+  type: SORT_NOTE,
+  payload: notes,
+})
+
+export const searchNoteAction = (text) => ({
+  type: SEARCH_NOTE,
+  payload: text,
 })

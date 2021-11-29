@@ -1,11 +1,9 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux'
 import { CharLimit } from '../../constants/Constants'
-import { addNoteAction } from '../../redux/notes/actions'
 
 import styles from './Note.module.scss'
 
-const AddNote = ({ addNoteAction, reduxNotes }) => {
+const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoneText] = useState('')
 
   const handleChange = (event) => {
@@ -16,7 +14,7 @@ const AddNote = ({ addNoteAction, reduxNotes }) => {
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      addNoteAction(noteText)
+      handleAddNote(noteText)
       setNoneText('')
     }
   }
@@ -54,12 +52,4 @@ const AddNote = ({ addNoteAction, reduxNotes }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  reduxNotes: state.notes || [],
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  addNoteAction: (text) => dispatch(addNoteAction(text)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddNote)
+export default AddNote

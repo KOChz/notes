@@ -1,5 +1,11 @@
 import { nanoid } from 'nanoid'
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from './actionTypes'
+import {
+  ADD_NOTE,
+  DELETE_NOTE,
+  EDIT_NOTE,
+  SORT_NOTE,
+  SEARCH_NOTE,
+} from './actionTypes'
 
 const date = new Date()
 
@@ -43,6 +49,17 @@ export default function notes(state = initialState, { type, payload }) {
               }
             : note
         ),
+      }
+    }
+    case SORT_NOTE: {
+      return {
+        ...state,
+        notes: [...state.notes].reverse(),
+      }
+    }
+    case SEARCH_NOTE: {
+      return {
+        ...state,
       }
     }
     default:
