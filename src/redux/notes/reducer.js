@@ -10,13 +10,7 @@ import {
 const date = new Date()
 
 export const initialState = {
-  notes: [
-    {
-      id: nanoid(),
-      text: '',
-      date: '',
-    },
-  ],
+  notes: [],
 }
 
 export default function notes(state = initialState, { type, payload }) {
