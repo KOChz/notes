@@ -8,13 +8,7 @@ import styles from './components/Note/Note.module.scss'
 import './App.scss'
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: '',
-      date: '',
-    },
-  ])
+  const [notes, setNotes] = useState([])
 
   const Sort = () => {
     const sortedNotes = notes
